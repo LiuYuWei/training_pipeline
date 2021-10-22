@@ -3,7 +3,7 @@ import numpy as np
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import Perceptron
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 
 
@@ -34,7 +34,7 @@ class IrisTraining:
         self.data["x_test"] = sc.transform(X_test)
 
     def data_training(self):
-        self.model = Perceptron(n_iter=40, eta0=0.1, random_state=0)
+        self.model = KNeighborsClassifier(n_neighbors=1)
         self.model.fit(self.data["x_train"], self.data["y_train"])
     
     def data_predict(self, x_test):
