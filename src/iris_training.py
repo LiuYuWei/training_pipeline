@@ -16,10 +16,15 @@ class IrisTraining:
 
     def training_pipeline(self):
         self.data_extract()
+        print("Finish data extract.")
         self.data_transform()
+        print("Finish data transform.")
+        print("Start data training.")
         self.data_training()
-        y_pred = self.data_predict(self.data["y_train"])
+        print("Finish data training.")
+        y_pred = self.data_predict(self.data["x_test"])
         self.data_evaluation(self.data["y_test"], y_pred)
+        print("Finish data evaluation.")
 
     def data_extract(self):
         self.df = datasets.load_iris()
