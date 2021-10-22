@@ -27,13 +27,11 @@ class IrisTraining:
     def data_transform(self):
         X = self.df.data[:, [2, 3]]
         y = self.df.target
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
+        X_train, X_test, self.data["y_train"], self.data["y_test"] = train_test_split(X, y, test_size=0.3, random_state=0)
         sc = StandardScaler()
         sc.fit(X_train)
         self.data["x_train"] = sc.transform(X_train)
         self.data["x_test"] = sc.transform(X_test)
-        self.data["y_train"] = np.vstack((X_train_std, X_test_std))
-        self.data["y_test"] = np.hstack((y_train, y_test))
 
     def data_training(self):
         self.model = Perceptron(n_iter=40, eta0=0.1, random_state=0)
