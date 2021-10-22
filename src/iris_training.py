@@ -30,7 +30,7 @@ class IrisTraining:
         self.df = datasets.load_iris()
 
     def data_transform(self):
-        X = self.df.data[:, [2, 3]]
+        X = self.df.data
         y = self.df.target
         X_train, X_test, self.data["y_train"], self.data["y_test"] = train_test_split(X, y, test_size=0.3, random_state=0)
         sc = StandardScaler()
