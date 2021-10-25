@@ -54,12 +54,12 @@ class IrisTraining:
         print ('Accuracy: {}'.format(accuracy_score(y_test, y_pred)))
     
     def registry_model(self, model_path, model_run_id):
+        registry_name = "iris-model"
         try:
-            registry_name = "iris-model"
+            self.client.create_registered_model(registry_name)
         except Exception:
             print("You are already create the registry model.")
 
-        #self.client.create_registered_model(registry_name)
         result = self.client.create_model_version(
             name=registry_name,
             source=model_path,
