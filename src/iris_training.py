@@ -55,7 +55,7 @@ class IrisTraining:
     
     def registry_model(self, model_path, model_run_id):
         try:
-            registry_name = "iris_model"
+            registry_name = "iris-model"
         except Exception:
             print("You are already create the registry model.")
 
